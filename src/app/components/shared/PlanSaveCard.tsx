@@ -1,10 +1,14 @@
 
 
+import { TLibrary } from '@/app/DataTypes/Type';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
 
-const PlanSaveCard = ({ data }) => {
+type PlanSaveCardProps = {
+  data: TLibrary;
+};
+
+const PlanSaveCard = ({ data }: PlanSaveCardProps) => {
     return (
        <div className="flex w-full flex-col gap-4 rounded-xl border border-[#292D35] bg-[#17191F] p-4 text-white md:flex-row md:items-center md:justify-between">
 
@@ -12,7 +16,7 @@ const PlanSaveCard = ({ data }) => {
       <div className="flex items-center gap-5">
 
         {/* Image */}
-        <div className="relative h-[90px] w-[165px] shrink-0 overflow-hidden rounded-xl">
+        <div className="relative h-22.5 w-41.25 shrink-0 overflow-hidden rounded-xl">
           <Image src={data.image} alt={data.name} fill className="object-cover" />
         </div>
 

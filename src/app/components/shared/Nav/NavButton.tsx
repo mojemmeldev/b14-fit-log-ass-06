@@ -6,9 +6,13 @@ import React, { useContext } from 'react';
 
 
 const NavButton = () => {
-    const { libraryPlan, librarySaved } = useContext(LibraryContext);
+    const libraryContext = useContext(LibraryContext);
 
+    if (!libraryContext) {
+        return null;
+    }
 
+    const { libraryPlan, librarySaved } = libraryContext;
 
     return (
         <div className="flex items-center gap-8">
