@@ -1,13 +1,22 @@
 import { TLibrary } from "@/app/DataTypes/Type";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 type PlanCardProps = {
   data: TLibrary;
 };
 
 const PlanCard = ({ data }: PlanCardProps) => {
+
+const [isDone, setIsDone] = useState(false);
+
+const handleMarkDone = () => {
+  setIsDone(true);
+  toast.success("Workout marked as done!");
+};
+
   return (
     <div className=" flex w-full min-w-0 flex-col gap-5 rounded-xl border border-[#292D35] bg-[#17191F] p-3 text-white sm:p-4 lg:flex-row lg:items-center lg:justify-between lg:gap-6 " >
       {/* LEFT SIDE */}
@@ -72,9 +81,13 @@ const PlanCard = ({ data }: PlanCardProps) => {
         </Link>
 
         {/* Mark Done */}
-        <Link href={`/workouts/${data.id}`} className=" btn min-h-[42px] w-full rounded-full border-[#B6FF00] bg-[#B6FF00] px-5 text-sm font-semibold text-black hover:border-[#B6FF00] hover:bg-transparent hover:text-[#B6FF00] sm:w-auto md:px-6 " >
-          ✔ Mark as Done
-        </Link>
+        <button
+          onClick={handleMarkDone}
+          disabled={isDone}
+          className="btn min-h-[42px] w-full rounded-full border-[#B6FF00] bg-[#B6FF00] px-5 text-sm font-semibold text-black sm:w-auto md:px-6"
+        >
+          {isDone ? "✔ Completed" : "✔ Mark as Done"}
+        </button>
       </div>
     </div>
   );

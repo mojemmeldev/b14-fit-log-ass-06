@@ -1,0 +1,106 @@
+# 🏋️ FitLog
+
+FitLog is a modern workout library and fitness planning web application built with Next.js. Users can explore exercises, view detailed workout information, add exercises to today's plan, save workouts for later, and track total workout duration and calories.
+
+The application is fully responsive and works smoothly across mobile, tablet, and desktop devices.
+
+---
+
+## 🚀 Technologies Used
+
+- **Next.js**
+- **React.js**
+- **TypeScript**
+- **Tailwind CSS**
+- **DaisyUI**
+- **React Context API**
+- **React Toastify**
+- **REST API / Fetch API**
+
+---
+
+## ✨ Key Features
+
+### 1. Workout Library
+Users can browse a collection of exercises with useful information such as:
+
+- Exercise name
+- Muscle groups
+- Equipment
+- Duration
+- Calories burned
+- Rating
+
+### 2. Exercise Details
+Each workout has a dedicated details page where users can view:
+
+- Exercise description
+- Equipment
+- Difficulty level
+- Sets and reps
+- Duration
+- Calories
+- Rating
+- Step-by-step instructions
+
+### 3. Today's Workout Plan
+Users can add exercises to their **Today's Plan** and see dynamically calculated:
+
+- Total exercises
+- Total workout minutes
+- Total calories
+
+Exercises can also be removed from the plan when needed.
+
+### 4. Save Workouts for Later
+Users can save their favorite workouts and access them from the **Saved** section.
+
+Duplicate workouts are prevented, and toast notifications provide instant feedback when an exercise is saved or added to the plan.
+
+### 5. Responsive & User-Friendly Experience
+FitLog is designed for:
+
+- 📱 Mobile
+- 📲 Tablet
+- 💻 Desktop
+
+It also includes:
+
+- Responsive navigation
+- Loading animation while workout data is being fetched
+- Custom 404 page
+- Empty-state UI
+- Interactive tabs
+- Toast notifications
+
+---
+
+## 🎨 UI Design
+
+FitLog uses a modern dark fitness-themed interface with a neon green accent color.
+
+Main design colors:
+
+- Background: `#0D0F12`
+- Card Background: `#17191F`
+- Accent: `#B6FF00`
+- Border: `#292D35`
+
+---
+
+## 📂 Main Pages
+
+- `/` - Home Page
+- `/workouts` - Workout Library
+- `/workouts/[id]` - Workout Details
+- `/myplan` - Today's Plan & Saved Workouts
+- Custom `404` page for invalid routes
+
+---
+
+## ⚙️ Getting Started
+
+Clone the repository:
+
+```bash
+git clone YOUR_GITHUB_REPOSITORY_URL

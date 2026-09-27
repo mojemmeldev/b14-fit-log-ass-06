@@ -5,7 +5,7 @@ import { TLibrary } from "@/app/DataTypes/Type";
 
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import React from "react";
+import React, { JSX } from "react";
 
 interface LibraryPageParams {
   id: string;

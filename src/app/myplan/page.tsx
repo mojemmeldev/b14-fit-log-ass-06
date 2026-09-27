@@ -6,6 +6,7 @@ import PlanCard from "../components/shared/PlanCard";
 import { useContext, useState } from "react";
 import { LibraryContext } from "@/Context/libraryContext";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 const MyPlanPage = () => {
   const context = useContext(LibraryContext);
@@ -20,9 +21,13 @@ const MyPlanPage = () => {
   const handleRemovePlan = ( id: number, isSavedTab: boolean ) => {
     if (isSavedTab) {
       setLibrarySaved((prev) => prev.filter((item) => item.id !== id) );
+
+      toast.success("Removed from saved workouts!");
     } 
     else {
       setLibraryPlan((prev) => prev.filter((item) => item.id !== id) );
+
+      toast.success("Workout removed from today's plan!");
     }
   };
 
@@ -33,10 +38,10 @@ const MyPlanPage = () => {
   const totalExercises = currentItems.length;
 
   const totalMinutes = currentItems.reduce(
-    (sum: number, plan: TLibrary) => sum + (Number(plan.duration) || 0), 0 );
+    (sum: number, plan: TLibrary) => sum + (Number(plan.duration) || 0), 0);
 
   const totalCalories = currentItems.reduce(
-    (sum: number, plan: TLibrary) => sum + (Number(plan.caloriesBurned) || 0), 0 );
+    (sum: number, plan: TLibrary) => sum + (Number(plan.caloriesBurned) || 0), 0);
 
   return (
     <main className="min-h-screen bg-[#0D0F12]">
@@ -109,25 +114,25 @@ const MyPlanPage = () => {
         {/* ================= TABS ================= */}
         <div className=" tabs tabs-box w-full overflow-hidden rounded-xl border border-[#1c1e24] bg-[#13151b] " >
           {/* ================= TODAY PLAN ================= */}
-          <input type="radio" name="my_tabs" className=" tab text-xs sm:text-sm " aria-label="Today’s Plan" checked={activeTab === "plan"} onChange={() => setActiveTab("plan") } />
+          <input type="radio" name="my_tabs" className=" tab text-xs sm:text-sm " aria-label="Today’s Plan" checked={activeTab === "plan"} onChange={() => setActiveTab("plan")} />
 
           <div className=" tab-content w-full border-t border-[#1c1e24] bg-[#0d0e12] p-3 sm:p-4 md:p-5 lg:p-6 " >
             <div className="grid gap-3 sm:gap-4">
-              {libraryPlan.length > 0 ? ( libraryPlan.map((plan) => (
-                  <div key={plan.id} className=" flex w-full min-w-0 flex-col gap-3 rounded-xl border border-[#1c1e24] bg-[#13151b] p-3 sm:p-4 lg:flex-row lg:items-center lg:justify-between " >
-                    {/* Plan Card */}
-                    <div className="w-full min-w-0 flex-1">
-                      <PlanCard data={plan} />
-                    </div>
-
-                    {/* Remove */}
-                    <button 
-                    onClick={() => handleRemovePlan( plan.id, false ) } 
-                    className=" flex h-9 w-9 shrink-0 items-center justify-center self-end rounded-md text-[#717684] transition hover:bg-[#1c1e24] hover:text-red-500 lg:ml-3 lg:self-auto " title="Remove Plan" aria-label="Remove Plan" >
-                      ✕
-                    </button>
+              {libraryPlan.length > 0 ? (libraryPlan.map((plan) => (
+                <div key={plan.id} className=" flex w-full min-w-0 flex-col gap-3 rounded-xl border border-[#1c1e24] bg-[#13151b] p-3 sm:p-4 lg:flex-row lg:items-center lg:justify-between " >
+                  {/* Plan Card */}
+                  <div className="w-full min-w-0 flex-1">
+                    <PlanCard data={plan} />
                   </div>
-                ))
+
+                  {/* Remove */}
+                  <button
+                    onClick={() => handleRemovePlan(plan.id, false)}
+                    className=" flex h-9 w-9 shrink-0 items-center justify-center self-end rounded-md text-[#717684] transition hover:bg-[#1c1e24] hover:text-red-500 lg:ml-3 lg:self-auto " title="Remove Plan" aria-label="Remove Plan" >
+                    ✕
+                  </button>
+                </div>
+              ))
               ) : (
                 /* EMPTY */
                 <div className=" flex min-h-[230px] flex-col items-center justify-center px-4 py-8 text-center sm:min-h-[280px] md:min-h-[320px] " >
@@ -149,7 +154,7 @@ const MyPlanPage = () => {
           </div>
 
           {/* ================= SAVED ================= */}
-          <input type="radio" name="my_tabs" className=" tab text-xs sm:text-sm " aria-label="Saved" checked={activeTab === "saved"} onChange={() => setActiveTab("saved") } />
+          <input type="radio" name="my_tabs" className=" tab text-xs sm:text-sm " aria-label="Saved" checked={activeTab === "saved"} onChange={() => setActiveTab("saved")} />
 
           <div className=" tab-content w-full border-t border-[#1c1e24] bg-[#0d0e12] p-3 sm:p-4 md:p-5 lg:p-6 " >
             <div className="grid gap-3 sm:gap-4">
@@ -165,10 +170,11 @@ const MyPlanPage = () => {
 
                     {/* Remove */}
                     <button
-                      onClick={() => handleRemovePlan( plan.id, true ) }
+                      onClick={() => handleRemovePlan(plan.id, true)}
                       className=" flex h-9 w-9 shrink-0 items-center justify-center self-end rounded-md text-[#717684] transition hover:bg-[#1c1e24] hover:text-red-500 lg:ml-3 lg:self-auto " title="Remove Saved" aria-label="Remove Saved" >
                       ✕
                     </button>
+
                   </div>
                 ))
               ) : (
