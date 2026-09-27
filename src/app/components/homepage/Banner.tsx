@@ -4,51 +4,49 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Banner = () => {
-  return (
-    <section className="bg-[#0B0D10] px-4 py-6">
-      <div className="container mx-auto overflow-hidden rounded-[20px] border border-[#272B33] bg-[#15181E]">
-        <div className="grid min-h-[470px] items-center gap-8 px-7 py-10 md:grid-cols-2 md:px-14 lg:px-16">
+    return (
+        <section className="bg-[#0B0D10] px-3 py-4 sm:px-5 sm:py-6 md:px-6 lg:px-8">
+            <div className="mx-auto w-full max-w-7xl overflow-hidden rounded-2xl border border-[#272B33] bg-[#15181E]">
 
-          {/* Left Content */}
-          <div className="space-y-6">
-            <p className="text-sm font-extrabold tracking-wide text-[#B6FF00]">
-              WORKOUT LIBRARY
-            </p>
+                <div
+                    className="grid grid-cols-1 items-center gap-8 px-5 py-8 sm:px-7 sm:py-10 md:min-h-[430px] md:grid-cols-2 md:gap-10 md:px-10 md:py-12 lg:min-h-[470px] lg:gap-14 lg:px-16 lg:py-14 " >
 
-            <h1 className="max-w-[650px] text-[42px] font-black uppercase leading-[0.98] tracking-tight text-white md:text-[56px] lg:text-[64px]">
-              TRAIN WITH INTENT. LOG
-              <span className="block">
-                EVERY SET.
-              </span>
-            </h1>
+                    {/* Left Content */}
+                    <div className="order-1 space-y-5 text-center md:text-left lg:space-y-6">
 
-            <p className="max-w-[580px] text-base leading-7 text-[#9CA3AF] md:text-lg">
-              FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
-              into today&apos;s plan, and watch the week&apos;s work add up.
-            </p>
+                        <p className="text-xs font-extrabold tracking-wide text-[#B6FF00] sm:text-sm">
+                            WORKOUT LIBRARY
+                        </p>
 
-            <Link
-              href="/workouts"
-              className="inline-flex h-[44px] items-center justify-center rounded-md bg-[#B6FF00] px-7 text-sm font-extrabold text-black transition hover:bg-[#A6EB00]"
-            >
-              BROWSE WORKOUTS
-            </Link>
-          </div>
+                        <h1
+                            className=" mx-auto max-w-[650px] text-[34px] font-black uppercase leading-[1] tracking-tight text-white sm:text-[42px] md:mx-0 md:text-[48px] lg:text-[64px]">
+                            TRAIN WITH INTENT. LOG
+                            <span className="block">
+                                EVERY SET.
+                            </span>
+                        </h1>
 
-          {/* Right Image */}
-          <div className="flex items-center justify-center md:justify-end">
-            <Image
-              src={BannerLogo}
-              alt="Workout exercise"
-              priority
-              className="h-auto w-[300px] object-contain md:w-[340px] lg:w-[390px]"
-            />
-          </div>
+                        <p className=" mx-auto max-w-[580px] text-sm leading-6 text-[#9CA3AF] sm:text-bas sm:leading-7 md:mx-0 md:text-base lg:text-lg">
+                            FitLog is a dark, no-nonsense gym companion: pick a lift, lock it into today&apos;s plan, and watch the week&apos;s work add up.
+                        </p>
 
-        </div>
-      </div>
-    </section>
-  );
+                        <Link
+                            href="/workouts"
+                            className=" inline-flex min-h-[44px] w-full items-center justify-center rounded-md bg-[#B6FF00] px-6 text-sm font-extrabold text-black transition hover:bg-[#A6EB00] sm:w-auto sm:px-7 ">
+                            BROWSE WORKOUTS
+                        </Link>
+
+                    </div>
+
+                    {/* Right Image */}
+                    <div className="order-2 flex items-center justify-center md:justify-end">
+                        <Image src={BannerLogo} alt="Workout exercise"priority className=" h-auto w-[210px] object-contain sm:w-[260px]  md:w-[300px] lg:w-[390px] "/>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    );
 };
 
 export default Banner;

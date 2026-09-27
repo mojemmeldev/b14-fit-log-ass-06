@@ -7,16 +7,7 @@ import { usePathname } from "next/navigation";
 const NavLinks = () => {
   const pathname = usePathname();
 
-  const links = [
-    {
-      name: "Workouts",
-      href: "/workouts",
-    },
-    {
-      name: "My Plan",
-      href: "/myplan",
-    },
-  ];
+  const links = [ { name: "Workouts", href: "/workouts", }, { name: "My Plan", href: "/myplan", }, ];
 
   return (
     <>
@@ -25,14 +16,7 @@ const NavLinks = () => {
 
         return (
           <li key={item.href}>
-            <Link
-              href={item.href}
-              className={`rounded-full px-5 py-2 text-sm font-medium transition ${
-                active
-                  ? "bg-[#1D2A0E] text-[#B6FF00]"
-                  : "text-gray-400 hover:text-white"
-              }`}
-            >
+            <Link href={item.href} className={`rounded-full px-5 py-2 text-sm font-medium transition ${ active ? "bg-[#1D2A0E] text-[#B6FF00]" : "text-gray-400 hover:text-white" }`} >
               {item.name}
             </Link>
           </li>

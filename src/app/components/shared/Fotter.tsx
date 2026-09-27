@@ -8,13 +8,7 @@ const Fotter = () => {
       <div className="container mx-auto flex min-h-[105px] flex-col items-center justify-between gap-4 px-6 py-6 md:flex-row md:py-0">
 
         <div className="flex items-center gap-3">
-          <Image
-            src={Flogo}
-            alt="FitLog Logo"
-            width={24}
-            height={24}
-            className="object-contain"
-          />
+          <Image src={Flogo} alt="FitLog Logo" width={24} height={24} className="object-contain" />
 
           <span className="text-[18px] font-black tracking-wide text-white">
             FITLOG

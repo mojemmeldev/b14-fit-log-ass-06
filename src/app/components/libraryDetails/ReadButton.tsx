@@ -5,6 +5,7 @@ import React, { useContext } from "react";
 
 import { TLibrary } from "@/app/DataTypes/Type";
 import { LibraryContext } from "@/Context/libraryContext";
+import { toast } from "react-toastify/unstyled";
 
 type TReadButtonProps = {
   data: TLibrary;
@@ -21,7 +22,7 @@ const ReadButton = ({ data }: TReadButtonProps) => {
 
    
     setLibraryPlan( [...libraryPlan, data]);
-    alert('add plan')
+    toast.success('add plan')
   };
 
   return (
