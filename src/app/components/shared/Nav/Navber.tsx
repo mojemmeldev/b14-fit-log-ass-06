@@ -6,7 +6,7 @@ import NavLinks from "./NavLinks";
 
 const Navber = () => {
   return (
-    <header className="w-full border-b border-[#22262d] bg-base-100">
+    <header className="sticky top-0 z-50 w-full border-b border-[#22262d] bg-base-100">
       <div className=" navbar mx-auto w-full max-w-7xl min-h-[64px] px-3 sm:px-4 md:px-6 lg:px-8 " >
         {/* LEFT SIDE */}
         <div className="navbar-start">
